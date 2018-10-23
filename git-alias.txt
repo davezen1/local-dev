@@ -1,0 +1,23 @@
+cv = commit --verbose
+delete-local-merged = !git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d
+delete-merged-on-origin = !git branch --all --merged remotes/origin/master | grep --invert-match master | grep --invert-match HEAD | grep "remotes/origin/" | cut -d "/" -f 3- | xargs -n 1 git push --delete origin
+df = diff --patience
+dfc = !git df --cached
+dw = diff --color-words --patience
+dwc = !git dw --cached
+fa = fetch --all -p
+lgg = !git lsr | grep
+lggl = !git lls | grep
+lgr = log --pretty=format:'%C(bold blue)%h%C(reset)%C(yellow) - %C(white)(%ad)%C(reset) %Cred%d %C(bold white)%s%C(reset) %C(white)— %an' --abbrev-commit --decorate --date=relative --graph --all
+lgs = log --pretty=format:'%C(bold blue)%h%C(reset)%C(yellow) - %C(white)(%ad)%C(reset) %Cred%d %C(bold white)%s%C(reset) %C(white)— %an' --abbrev-commit --decorate --date=short --graph --all
+llr = log --pretty=format:'%C(bold blue)%H%C(reset)%C(yellow) - %C(white)(%ad)%C(reset) %Cred%d %C(bold white)%s%C(reset) %C(white)— %an' --decorate --numstat --date=relative
+lls = log --pretty=format:'%C(bold blue)%H%C(reset)%C(yellow) - %C(white)(%ad)%C(reset) %Cred%d %C(bold white)%s%C(reset) %C(white)— %an' --decorate --numstat --date=short
+lsf = ls-files
+lsi = log --pretty=format:'%C(bold blue)%h%C(reset)%C(yellow) - %C(white)(%ad)%C(reset) %Cred%d %C(bold white)%s%C(reset) %C(white)— %an' --abbrev-commit --decorate --date=iso
+lsr = log --pretty=format:'%C(bold blue)%h%C(reset)%C(yellow) - %C(white)(%ad)%C(reset) %Cred%d %C(bold white)%s%C(reset) %C(white)— %an' --abbrev-commit --decorate --date=relative
+lss = log --pretty=format:'%C(bold blue)%h%C(reset)%C(yellow) - %C(white)(%ad)%C(reset) %Cred%d %C(bold white)%s%C(reset) %C(white)— %an' --abbrev-commit --decorate --date=short
+rba = rebase --abort
+rbc = rebase --continue
+rbs = rebase --skip
+ss = status -sb
+unstage = reset HEAD
